@@ -5,6 +5,6 @@ register = template.Library()
 
 #декоратор
 @register.inclusion_tag('blog/menu_tpl.html')
-def show_menu(menu_class='menu'):
-    categories = Category.objects.all()
+def show_menu(menu_class='menu', cnt=4):
+    categories = Category.objects.all()[:cnt]
     return {'categories': categories, 'menu_class': menu_class}

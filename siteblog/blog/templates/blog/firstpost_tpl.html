@@ -1,0 +1,15 @@
+{% for post in posts_popular %}
+<div class="big-image">
+    {% if post.photo %}
+        <img src="{{ post.photo.url }}" alt="{{ post.title }}"/>
+        {% else %}
+        <img src="https://picsum.photos/300/201/" alt="{{ post.title }}"/>
+        {% endif %}
+</div>
+<div class="big-text">
+    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.content|truncatewords_html:80|safe }}</p>
+    <h4><span class="date">{{ post.created_at|date:"d.m.Y"}}</span><span class="author">Posted By: <span class="author-name">{{ post.author }}</span></span>
+    </h4>
+</div>
+{% endfor %}

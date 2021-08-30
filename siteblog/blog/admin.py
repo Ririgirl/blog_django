@@ -21,7 +21,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'author', 'created_at', 'category', 'get_photo')
     list_display_links = ('id', 'title')
     search_fields = ('title',)
-    list_filter = ('category',)
+    list_filter = ('category', 'tags')
     save_on_top = True
     readonly_fields = ('views', 'created_at', 'get_photo')
     fields = ('title', 'slug', 'author', 'category', 'tags', 'content', 'photo', 'get_photo', 'views', 'created_at')
